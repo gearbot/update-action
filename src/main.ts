@@ -11,8 +11,10 @@ async function run() {
             const files = new Set();
             for (let i = 0; i < commits.length; i++) {
                 const modified = commits[i].modified;
-                for (let j = 0; j < modified.length; j++)
+                for (let j = 0; j < modified.length; j++) {
+                    core.debug(modified[j]);
                     files.add(modified[j]);
+                }
             }
 
             const upgradeFiles = [
