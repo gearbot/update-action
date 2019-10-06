@@ -20,7 +20,8 @@ async function run() {
             const upgradeFiles = [
                 "GearBot/GearBot.py",
                 "GearBot/Bot/GearBot.py",
-                "GearBot/Util/PromMonitors.py"
+                "GearBot/Util/PromMonitors.py",
+                "requirements.txt"
             ];
             if (upgradeFiles.filter(f => files.has(f)).length > 0)
                 output = "upgrade"
