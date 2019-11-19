@@ -3,6 +3,7 @@ import * as github from '@actions/github';
 
 async function run() {
     try {
+    console.log(Object.keys(github.context.payload))
         const commits = github.context.payload.commits;
         let output = "update";
         if (commits.length >= 20)
@@ -11,7 +12,7 @@ async function run() {
             const files = new Set();
             for (let i = 0; i < commits.length; i++) {
                 const modified = commits[i].modified;
-                for (let j = 0; j < modified.length; j++) {
+                for (let j = 0; j < modified ? modified.length: 0; j++) {
                     core.debug(modified[j]);
                     files.add(modified[j]);
                 }
